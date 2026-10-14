@@ -3,6 +3,7 @@ import type { Db } from "./db/client.js";
 import { errorHandler, notFoundHandler } from "./http/errors.js";
 import { requireApiKey } from "./http/middleware/auth.js";
 import { accountRouter, publicAccountsRouter } from "./http/routes/accounts.js";
+import { plansRouter } from "./http/routes/plans.js";
 import { usersRouter } from "./http/routes/users.js";
 
 export function createApp(deps: { db: Db }) {
@@ -20,6 +21,7 @@ export function createApp(deps: { db: Db }) {
   v1.use(requireApiKey(db)); // everything below needs a valid API key
   v1.use("/account", accountRouter(db));
   v1.use("/users", usersRouter(db));
+  v1.use("/plans", plansRouter(db));
   app.use("/v1", v1);
 
   app.use(notFoundHandler);
