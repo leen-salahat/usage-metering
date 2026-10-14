@@ -1,0 +1,13 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1791964027101,
+      "tag": "0000_chemical_krista_starr",
+      "breakpoints": true
+    }
+  ]
+}
