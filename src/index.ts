@@ -9,7 +9,7 @@ const { db } = createDb(config.DATABASE_URL);
 await runMigrations(db);
 await seedPredefinedPlans(db);
 
-const app = createApp();
+const app = createApp({ db });
 app.listen(config.PORT, () => {
   console.log(`Metering service listening on port ${config.PORT}`);
 });
