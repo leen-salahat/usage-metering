@@ -3,11 +3,13 @@ import type { Db } from "./db/client.js";
 import { errorHandler, notFoundHandler } from "./http/errors.js";
 import { requireApiKey } from "./http/middleware/auth.js";
 import { accountRouter, publicAccountsRouter } from "./http/routes/accounts.js";
+import { consumeRouter } from "./http/routes/consume.js";
 import { plansRouter } from "./http/routes/plans.js";
 import { usersRouter } from "./http/routes/users.js";
 
-export function createApp(deps: { db: Db }) {
+export function createApp(deps: { db: Db; now?: () => Date }) {
   const { db } = deps;
+  const now = deps.now ?? (() => new Date()); // tests inject a fake clock
   const app = express();
   app.disable("x-powered-by");
   app.use(express.json({ limit: "100kb" }));
@@ -22,6 +24,7 @@ export function createApp(deps: { db: Db }) {
   v1.use("/account", accountRouter(db));
   v1.use("/users", usersRouter(db));
   v1.use("/plans", plansRouter(db));
+  v1.use("/consume", consumeRouter(db, now));
   app.use("/v1", v1);
 
   app.use(notFoundHandler);

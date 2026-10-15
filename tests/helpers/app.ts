@@ -20,8 +20,10 @@ export interface ApiOptions {
 
 export type Api = (method: string, path: string, opts?: ApiOptions) => Promise<ApiResult>;
 
-async function startTestServer(db: Db) {
-  const app = createApp({ db });
+export const DEFAULT_TEST_NOW = "2026-10-15T10:00:00.000Z";
+
+async function startTestServer(db: Db, now: () => Date) {
+  const app = createApp({ db, now });
   const server: Server = await new Promise((resolve) => {
     const s = app.listen(0, () => resolve(s)); // port 0 = any free port
   });
@@ -51,18 +53,31 @@ function makeApi(baseUrl: string): Api {
   };
 }
 
-/** Fresh schema + seeded plans + running HTTP server. One call per test file. */
+/** Fresh schema + seeded plans + running HTTP server + a controllable clock. One call per test file. */
 export async function setupTestApp() {
   const { pool, db } = createTestDb();
   await resetDatabase(pool);
   await runMigrations(db);
   await seedPredefinedPlans(db);
-  const server = await startTestServer(db);
+
+  let current = new Date(DEFAULT_TEST_NOW);
+  const clock = {
+    now: () => current,
+    set: (iso: string) => {
+      current = new Date(iso);
+    },
+    reset: () => {
+      current = new Date(DEFAULT_TEST_NOW);
+    },
+  };
+
+  const server = await startTestServer(db, clock.now);
   const api = makeApi(server.baseUrl);
   return {
     pool,
     db,
     api,
+    clock,
     async close() {
       await server.close();
       await pool.end();
