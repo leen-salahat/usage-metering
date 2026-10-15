@@ -36,3 +36,11 @@ was silent, together with the reasoning. It will be merged into the README.
 | 18 | API key | One key per account, sent in `X-API-Key`. No rotation in this version. | Keeps scope small; rotation is a documented limitation. |
 | 19 | Plan patches | `PATCH` is strict: unknown fields (e.g. `kind`) and empty bodies return 400. | Silent ignoring would hide client bugs. |
 | 20 | Cross-account access | Users/plans of another account return 404, never 403. | No information leak about other accounts. |
+| 30 | Usage endpoints | `GET /v1/usage` and `GET /v1/users/:userId/usage` report the current UTC month (server clock), the plan applied right now, `consumed`, and `remaining = max(0, allowance - consumed)`. | The brief asks for consumed and remaining at both levels. |
+| 31 | Consistent reads | The user endpoint reads user and account numbers in ONE SQL statement; reads take no locks. | One statement sees one snapshot, so the two levels never disagree with each other. |
+| 32 | `maxConsumableNow` | Informational: `min(user remaining, account remaining, user max per request, account max per request)`. It is not a reservation. | Lets a client know what would be accepted at this moment. |
+| 33 | Monthly history | Lists months that have usage rows, newest first (default 12, max 24), reporting `consumed` only. Months with no requests do not appear. | Plan limits are not versioned per month. Limits at decision time are in each request's snapshot. |
+| 34 | Request history | `GET /v1/requests`: newest first, keyset cursor on `(created_at, id)`, `limit` default 50 (max 500), filters `userId` and `accepted`. Includes rejected requests. | Keyset avoids OFFSET cost and is stable while new rows arrive. |
+| 35 | Cursor | Opaque base64url token, validated; a malformed one returns 400 `INVALID_CURSOR`. | Callers must not depend on its content. |
+| 36 | Pagination limitation | `created_at` is the transaction start time. A transaction that waited for a lock may commit a row "in the past" after a client already paged beyond it. | Rare, and acceptable for an audit-style history. Documented trade-off. |
+| 37 | Request lookup | `GET /v1/requests/:requestId` returns the stored outcome and decision snapshot (404 if unknown, including another account's id). | Lets a caller check the outcome of a request after a timeout. |
