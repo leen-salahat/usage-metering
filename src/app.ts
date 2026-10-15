@@ -5,6 +5,7 @@ import { requireApiKey } from "./http/middleware/auth.js";
 import { accountRouter, publicAccountsRouter } from "./http/routes/accounts.js";
 import { consumeRouter } from "./http/routes/consume.js";
 import { plansRouter } from "./http/routes/plans.js";
+import { usageRouter } from "./http/routes/usage.js";
 import { usersRouter } from "./http/routes/users.js";
 
 export function createApp(deps: { db: Db; now?: () => Date }) {
@@ -25,6 +26,7 @@ export function createApp(deps: { db: Db; now?: () => Date }) {
   v1.use("/users", usersRouter(db));
   v1.use("/plans", plansRouter(db));
   v1.use("/consume", consumeRouter(db, now));
+  v1.use(usageRouter(db, now)); // /usage, /usage/history, /users/:id/usage[/history]
   app.use("/v1", v1);
 
   app.use(notFoundHandler);
