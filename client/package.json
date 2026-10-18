@@ -1,0 +1,12 @@
+{
+  "name": "metering-demo-client",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "demo": "tsx src/demo.ts"
+  },
+  "dependencies": {
+    "tsx": "^4.23.15"
+  }
+}
