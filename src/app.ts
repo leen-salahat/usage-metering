@@ -1,4 +1,5 @@
 import express from "express";
+import { sql } from "drizzle-orm";
 import type { Db } from "./db/client.js";
 import { errorHandler, notFoundHandler } from "./http/errors.js";
 import { requireApiKey } from "./http/middleware/auth.js";
@@ -16,8 +17,20 @@ export function createApp(deps: { db: Db; now?: () => Date }) {
   app.disable("x-powered-by");
   app.use(express.json({ limit: "100kb" }));
 
+  // Liveness: the process is up. Deliberately does not touch the database.
   app.get("/health", (_req, res) => {
     res.json({ status: "ok" });
+  });
+
+  // Readiness: the service can really serve requests, i.e. the database answers.
+  app.get("/ready", async (_req, res) => {
+    try {
+      await db.execute(sql`SELECT 1`);
+      res.json({ status: "ready" });
+    } catch (err) {
+      console.error("Readiness check failed:", (err as Error).message);
+      res.status(503).json({ status: "unavailable" });
+    }
   });
 
   const v1 = express.Router();
