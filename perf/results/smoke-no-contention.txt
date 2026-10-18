@@ -1,0 +1,107 @@
+Unable to find image 'grafana/k6:latest' locally
+latest: Pulling from grafana/k6
+4f4fb700ef54: Pulling fs layer
+c23814d09c35: Pulling fs layer
+55afa1ecc21d: Pulling fs layer
+20bef106a16f: Pulling fs layer
+4f4fb700ef54: Already exists
+4f4fb700ef54: Pull complete
+c23814d09c35: Download complete
+44136fa355b3: Already exists
+f762dabc449b: Download complete
+55afa1ecc21d: Download complete
+55afa1ecc21d: Pull complete
+c23814d09c35: Pull complete
+20bef106a16f: Download complete
+20bef106a16f: Pull complete
+Digest: sha256:e66db15b860113878fa74670e31f5e274830b7b6e42c8bff28b2f2d86a257603
+Status: Downloaded newer image for grafana/k6:latest
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+
+     execution: local
+        script: /scripts/no-contention.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 5 max VUs, 35s max duration (incl. graceful stop):
+              * independent_accounts: 5 looping VUs for 5s (gracefulStop: 30s)
+
+
+Run                    [ 100% ] setup()
+independent_accounts   [   0% ]
+
+running (02.0s), 5/5 VUs, 259 complete and 0 interrupted iterations
+independent_accounts   [  17% ] 5 VUs  0.9s/5s
+
+running (03.0s), 5/5 VUs, 687 complete and 0 interrupted iterations
+independent_accounts   [  37% ] 5 VUs  1.9s/5s
+
+running (04.0s), 5/5 VUs, 1126 complete and 0 interrupted iterations
+independent_accounts   [  57% ] 5 VUs  2.9s/5s
+
+running (05.0s), 5/5 VUs, 1571 complete and 0 interrupted iterations
+independent_accounts   [  77% ] 5 VUs  3.9s/5s
+
+running (06.0s), 5/5 VUs, 2033 complete and 0 interrupted iterations
+independent_accounts   [  97% ] 5 VUs  4.9s/5s
+
+
+  █ THRESHOLDS 
+
+    checks
+    ✓ 'rate==1' rate=100.00%
+
+    http_req_duration{name:consume}
+    ✓ 'p(95)<2000' p(95)=16.1ms
+
+    http_req_failed{name:consume}
+    ✓ 'rate<0.01' rate=0.00%
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 4554    741.923435/s
+    checks_succeeded...: 100.00% 4554 out of 4554
+    checks_failed......: 0.00%   0 out of 4554
+
+    ✓ consume status is 200
+    ✓ first send is a real decision (not a replay)
+    ✓ retry status is 200
+    ✓ retry returns the original decision with replayed:true
+
+    CUSTOM
+    decisions_accepted.............: 1728   281.520355/s
+    decisions_rejected.............: 347    56.532155/s
+    decisions_replayed.............: 202    32.909208/s
+
+    HTTP
+    http_req_duration..............: avg=10.42ms min=2.83ms med=10.13ms max=55.04ms p(90)=13.55ms p(95)=15.78ms
+      { expected_response:true }...: avg=10.42ms min=2.83ms med=10.13ms max=55.04ms p(90)=13.55ms p(95)=15.78ms
+      { name:consume }.............: avg=10.76ms min=2.83ms med=10.31ms max=55.04ms p(90)=13.73ms p(95)=16.1ms 
+    http_req_failed................: 0.00%  0 out of 2457
+      { name:consume }.............: 0.00%  0 out of 2277
+    http_reqs......................: 2457   400.286754/s
+
+    EXECUTION
+    iteration_duration.............: avg=12.04ms min=6.95ms med=10.94ms max=55.37ms p(90)=15.86ms p(95)=18.41ms
+    iterations.....................: 2075   338.052509/s
+    vus............................: 5      min=0         max=5
+    vus_max........................: 5      min=5         max=5
+
+    NETWORK
+    data_received..................: 1.7 MB 270 kB/s
+    data_sent......................: 599 kB 98 kB/s
+
+
+
+
+running (06.1s), 0/5 VUs, 2075 complete and 0 interrupted iterations
+independent_accounts ✓ [ 100% ] 5 VUs  5s
+--- invariants check (account = sum of users = sum of accepted units) ---
+OK: 5 account-month(s) checked, all invariants hold.
+k6 exit code: 0 | db:check exit code: 0

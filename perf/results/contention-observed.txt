@@ -1,0 +1,131 @@
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+
+     execution: local
+        script: /scripts/contention.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 50 max VUs, 50s max duration (incl. graceful stop):
+              * one_hot_account: 50 looping VUs for 20s (gracefulStop: 30s)
+
+
+running (01.0s), 50/50 VUs, 98 complete and 0 interrupted iterations
+one_hot_account   [   4% ] 50 VUs  00.8s/20s
+
+running (02.0s), 50/50 VUs, 239 complete and 0 interrupted iterations
+one_hot_account   [   9% ] 50 VUs  01.8s/20s
+
+running (03.0s), 50/50 VUs, 406 complete and 0 interrupted iterations
+one_hot_account   [  14% ] 50 VUs  02.8s/20s
+
+running (04.0s), 50/50 VUs, 585 complete and 0 interrupted iterations
+one_hot_account   [  19% ] 50 VUs  03.8s/20s
+
+running (05.0s), 50/50 VUs, 777 complete and 0 interrupted iterations
+one_hot_account   [  24% ] 50 VUs  04.8s/20s
+
+running (06.0s), 50/50 VUs, 979 complete and 0 interrupted iterations
+one_hot_account   [  29% ] 50 VUs  05.8s/20s
+
+running (07.0s), 50/50 VUs, 1186 complete and 0 interrupted iterations
+one_hot_account   [  34% ] 50 VUs  06.8s/20s
+
+running (08.0s), 50/50 VUs, 1397 complete and 0 interrupted iterations
+one_hot_account   [  39% ] 50 VUs  07.8s/20s
+
+running (09.0s), 50/50 VUs, 1605 complete and 0 interrupted iterations
+one_hot_account   [  44% ] 50 VUs  08.8s/20s
+
+running (10.0s), 50/50 VUs, 1713 complete and 0 interrupted iterations
+one_hot_account   [  49% ] 50 VUs  09.8s/20s
+
+running (11.0s), 50/50 VUs, 1733 complete and 0 interrupted iterations
+one_hot_account   [  54% ] 50 VUs  10.8s/20s
+
+running (12.0s), 50/50 VUs, 1890 complete and 0 interrupted iterations
+one_hot_account   [  59% ] 50 VUs  11.8s/20s
+
+running (13.0s), 50/50 VUs, 2104 complete and 0 interrupted iterations
+one_hot_account   [  64% ] 50 VUs  12.8s/20s
+
+running (14.0s), 50/50 VUs, 2313 complete and 0 interrupted iterations
+one_hot_account   [  69% ] 50 VUs  13.8s/20s
+
+running (15.0s), 50/50 VUs, 2534 complete and 0 interrupted iterations
+one_hot_account   [  74% ] 50 VUs  14.8s/20s
+
+running (16.0s), 50/50 VUs, 2759 complete and 0 interrupted iterations
+one_hot_account   [  79% ] 50 VUs  15.8s/20s
+
+running (17.0s), 50/50 VUs, 2979 complete and 0 interrupted iterations
+one_hot_account   [  84% ] 50 VUs  16.8s/20s
+
+running (18.0s), 50/50 VUs, 3151 complete and 0 interrupted iterations
+one_hot_account   [  89% ] 50 VUs  17.8s/20s
+
+running (19.0s), 50/50 VUs, 3338 complete and 0 interrupted iterations
+one_hot_account   [  94% ] 50 VUs  18.8s/20s
+
+running (20.0s), 50/50 VUs, 3522 complete and 0 interrupted iterations
+one_hot_account   [  99% ] 50 VUs  19.8s/20s
+time="2026-10-18T07:19:48Z" level=info msg="FINAL account usage: consumed=1000 allowance=1000 remaining=0" source=console
+
+
+  █ THRESHOLDS 
+
+    checks
+    ✓ 'rate==1' rate=100.00%
+
+    http_req_duration{name:consume}
+    ✓ 'p(95)<5000' p(95)=395.75ms
+
+    http_req_failed{name:consume}
+    ✓ 'rate<0.01' rate=0.00%
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 6228    304.502374/s
+    checks_succeeded...: 100.00% 6228 out of 6228
+    checks_failed......: 0.00%   0 out of 6228
+
+    ✓ consume status is 200
+    ✓ every rejection is MONTHLY_ALLOWANCE_EXCEEDED on the account
+    ✓ NO OVERSPENDING: consumed never exceeds the allowance
+    ✓ the allowance was fully used (the load really exceeded it)
+
+    CUSTOM
+    decisions_accepted.............: 1000   48.892481/s
+    decisions_rejected.............: 2613   127.756054/s
+
+    HTTP
+    http_req_duration..............: avg=276.28ms min=3.68ms  med=241.15ms max=1.84s p(90)=334.52ms p(95)=394.74ms
+      { expected_response:true }...: avg=276.28ms min=3.68ms  med=241.15ms max=1.84s p(90)=334.52ms p(95)=394.74ms
+      { name:consume }.............: avg=278.14ms min=32.02ms med=241.56ms max=1.84s p(90)=334.84ms p(95)=395.75ms
+    http_req_failed................: 0.00%  0 out of 3638
+      { name:consume }.............: 0.00%  0 out of 3613
+    http_reqs......................: 3638   177.870847/s
+
+    EXECUTION
+    iteration_duration.............: avg=278.46ms min=34.58ms med=241.77ms max=1.84s p(90)=335.07ms p(95)=396.15ms
+    iterations.....................: 3613   176.648535/s
+    vus............................: 50     min=50        max=50
+    vus_max........................: 50     min=50        max=50
+
+    NETWORK
+    data_received..................: 2.5 MB 122 kB/s
+    data_sent......................: 888 kB 43 kB/s
+
+
+
+
+running (20.5s), 00/50 VUs, 3613 complete and 0 interrupted iterations
+one_hot_account ✓ [ 100% ] 50 VUs  20s
+--- invariants check (account = sum of users = sum of accepted units) ---
+OK: 1 account-month(s) checked, all invariants hold.
+k6 exit code: 0 | db:check exit code: 0

@@ -1,0 +1,6 @@
+date: 2026-10-18T07:17:32Z
+docker: 8 CPUs, 8203661312 bytes memory, 29.8.2
+node (service image): v22.23.3
+postgres: postgres (PostgreSQL) 16.15 (Debian 16.15-1.pgdg13+2)
+k6: k6 v2.3.0 (commit/e088784614, go1.27.1, linux/amd64)
+os: Linux 6.18.33.2-microsoft-standard-WSL2 x86_64 (WSL2)

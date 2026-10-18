@@ -1,0 +1,387 @@
+{
+    "metrics": {
+        "http_req_failed": {
+            "passes": 0,
+            "fails": 15686,
+            "value": 0
+        },
+        "http_req_duration{name:consume}": {
+            "avg": 77.21596360602285,
+            "min": 18.312605,
+            "med": 73.127249,
+            "max": 205.650159,
+            "p(90)": 97.396267,
+            "p(95)": 107.516553,
+            "thresholds": {
+                "p(95)<2000": false
+            }
+        },
+        "http_req_duration{expected_response:true}": {
+            "max": 205.650159,
+            "p(90)": 97.221755,
+            "p(95)": 107.42547975,
+            "avg": 76.40557803365999,
+            "min": 4.213959,
+            "med": 72.9869565
+        },
+        "http_req_failed{name:consume}": {
+            "passes": 0,
+            "fails": 15506,
+            "thresholds": {
+                "rate<0.01": false
+            },
+            "value": 0
+        },
+        "checks": {
+            "passes": 31012,
+            "fails": 0,
+            "thresholds": {
+                "rate==1": false
+            },
+            "value": 1
+        },
+        "vus_max": {
+            "value": 40,
+            "min": 40,
+            "max": 40
+        },
+        "data_received": {
+            "count": 10745899,
+            "rate": 343473.7664968941
+        },
+        "http_req_tls_handshaking": {
+            "avg": 0,
+            "min": 0,
+            "med": 0,
+            "max": 0,
+            "p(90)": 0,
+            "p(95)": 0
+        },
+        "http_req_sending": {
+            "avg": 0.027733710506183833,
+            "min": 0.00499,
+            "med": 0.022493,
+            "max": 1.670147,
+            "p(90)": 0.047092499999999995,
+            "p(95)": 0.05231325
+        },
+        "http_req_connecting": {
+            "max": 3.384917,
+            "p(90)": 0,
+            "p(95)": 0,
+            "avg": 0.002200290577585108,
+            "min": 0,
+            "med": 0
+        },
+        "http_req_duration": {
+            "p(95)": 107.42547975,
+            "avg": 76.40557803365999,
+            "min": 4.213959,
+            "med": 72.9869565,
+            "max": 205.650159,
+            "p(90)": 97.221755
+        },
+        "http_req_waiting": {
+            "avg": 76.29314206872378,
+            "min": 4.118507,
+            "med": 72.877265,
+            "max": 205.54405,
+            "p(90)": 97.0914865,
+            "p(95)": 107.2846845
+        },
+        "http_req_receiving": {
+            "p(95)": 0.1288075,
+            "avg": 0.08470225443070233,
+            "min": 0.012605,
+            "med": 0.083952,
+            "max": 1.623503,
+            "p(90)": 0.1167375
+        },
+        "decisions_accepted": {
+            "count": 11683,
+            "rate": 373.4265522115194
+        },
+        "http_req_blocked": {
+            "avg": 0.007548878745378024,
+            "min": 0.001185,
+            "med": 0.004261,
+            "max": 3.450226,
+            "p(90)": 0.0066485,
+            "p(95)": 0.00741075
+        },
+        "vus": {
+            "value": 40,
+            "min": 0,
+            "max": 40
+        },
+        "iteration_duration": {
+            "max": 312.945023,
+            "p(90)": 124.2527268,
+            "p(95)": 139.9917266,
+            "avg": 85.44500404183566,
+            "min": 53.504683,
+            "med": 75.617139
+        },
+        "http_reqs": {
+            "count": 15686,
+            "rate": 501.3754085414614
+        },
+        "decisions_rejected": {
+            "count": 2372,
+            "rate": 75.81680919675803
+        },
+        "iterations": {
+            "count": 14055,
+            "rate": 449.24336140827745
+        },
+        "data_sent": {
+            "count": 3834651,
+            "rate": 122567.87656119619
+        },
+        "decisions_replayed": {
+            "count": 1451,
+            "rate": 46.378663635959484
+        }
+    },
+    "setup_data": {
+        "accounts": [
+            {
+                "key": "mk_Dc0M3HDh8R0CDyKhis-_eNTi_xxMUENSgjz0Dx4TGvY",
+                "users": [
+                    "u0",
+                    "u1",
+                    "u2",
+                    "u3",
+                    "u4"
+                ]
+            },
+            {
+                "key": "mk_UtxIrLFJgCkLXpMjDvPbTwq3hgB7gSY15JSFjndkr5A",
+                "users": [
+                    "u0",
+                    "u1",
+                    "u2",
+                    "u3",
+                    "u4"
+                ]
+            },
+            {
+                "key": "mk_lTon5QWsBqvxjVLVcuWWNfuom9QhN2DZC6C8yGNAlKI",
+                "users": [
+                    "u0",
+                    "u1",
+                    "u2",
+                    "u3",
+                    "u4"
+                ]
+            },
+            {
+                "users": [
+                    "u0",
+                    "u1",
+                    "u2",
+                    "u3",
+                    "u4"
+                ],
+                "key": "mk_bSC6ITA9nMtwNePVwOwugWIICIPX28s1IMEd_kTGhsU"
+            },
+            {
+                "key": "mk_pfxF2RyzRHvKAAve6G-JhO_zHL5z31ClG9mxaYnn0vI",
+                "users": [
+                    "u0",
+                    "u1",
+                    "u2",
+                    "u3",
+                    "u4"
+                ]
+            },
+            {
+                "key": "mk_IkdSBOgFz_mEkkaRvOPGoozecLVlUD_zcBr_gkA-uR8",
+                "users": [
+                    "u0",
+                    "u1",
+                    "u2",
+                    "u3",
+                    "u4"
+                ]
+            },
+            {
+                "key": "mk_lo57l_BNeBABwW5jnNq_NPRKfRB-RkMf9dmQuOQnB2w",
+                "users": [
+                    "u0",
+                    "u1",
+                    "u2",
+                    "u3",
+                    "u4"
+                ]
+            },
+            {
+                "key": "mk_pO91QXsit_K4RSvZ8WzE6i7FqU2nf4A56jOxVzb4jFY",
+                "users": [
+                    "u0",
+                    "u1",
+                    "u2",
+                    "u3",
+                    "u4"
+                ]
+            },
+            {
+                "key": "mk_03ELYCEfw9HKotPUEmElfawq7wkDNR_m3w18SYFdVR0",
+                "users": [
+                    "u0",
+                    "u1",
+                    "u2",
+                    "u3",
+                    "u4"
+                ]
+            },
+            {
+                "key": "mk_yLp9VhU70ELnIYDAPZKN1-RIB9lO6EJIVgALcfRsiQg",
+                "users": [
+                    "u0",
+                    "u1",
+                    "u2",
+                    "u3",
+                    "u4"
+                ]
+            },
+            {
+                "users": [
+                    "u0",
+                    "u1",
+                    "u2",
+                    "u3",
+                    "u4"
+                ],
+                "key": "mk_V9ttJBKnjOLPqygYlZ5stkkdIopCvsm_1u3ZiY9BdLY"
+            },
+            {
+                "key": "mk_MxL5h-nbY285TAZXj1NZlZfdbt4Oczlyxn6dC7f62t0",
+                "users": [
+                    "u0",
+                    "u1",
+                    "u2",
+                    "u3",
+                    "u4"
+                ]
+            },
+            {
+                "key": "mk_m5yjAS-WEZFG4jVj0ISNnBV-yt1kLv6hkxpF7AaPB9w",
+                "users": [
+                    "u0",
+                    "u1",
+                    "u2",
+                    "u3",
+                    "u4"
+                ]
+            },
+            {
+                "key": "mk_oZBMv50LoVktzlAMURhm2NYnARWNcjTWHNSHtNRYpHg",
+                "users": [
+                    "u0",
+                    "u1",
+                    "u2",
+                    "u3",
+                    "u4"
+                ]
+            },
+            {
+                "key": "mk_NkQp7t3WPCu1nhSg0UYksZnkBJpovO2JjioNYP-JxqQ",
+                "users": [
+                    "u0",
+                    "u1",
+                    "u2",
+                    "u3",
+                    "u4"
+                ]
+            },
+            {
+                "key": "mk_nj78WGdNNMgcfLiwIwK_r2p-IsxUqiEy5bgF1-xB19o",
+                "users": [
+                    "u0",
+                    "u1",
+                    "u2",
+                    "u3",
+                    "u4"
+                ]
+            },
+            {
+                "users": [
+                    "u0",
+                    "u1",
+                    "u2",
+                    "u3",
+                    "u4"
+                ],
+                "key": "mk_5PyRVDJa1tX_0cuWJiGDPe_LS9YOWVQTpFZ8Qn5P5ZY"
+            },
+            {
+                "key": "mk_d1xnUTajq3bDi6AssbvAhTGkaE0Lvy7HUGnDf1eMp-E",
+                "users": [
+                    "u0",
+                    "u1",
+                    "u2",
+                    "u3",
+                    "u4"
+                ]
+            },
+            {
+                "key": "mk_tDO-367_RbQtL2Cuh8noH-KDiYtUsSz8-RK81yoWkqg",
+                "users": [
+                    "u0",
+                    "u1",
+                    "u2",
+                    "u3",
+                    "u4"
+                ]
+            },
+            {
+                "users": [
+                    "u0",
+                    "u1",
+                    "u2",
+                    "u3",
+                    "u4"
+                ],
+                "key": "mk_h3Q2RQDXuZ-K4uTX2m0cVO1hJ5PjokCj2G3FywyiVnY"
+            }
+        ],
+        "runId": "mvdhu3cl"
+    },
+    "root_group": {
+        "name": "",
+        "path": "",
+        "id": "d41d8cd98f00b204e9800998ecf8427e",
+        "groups": {},
+        "checks": {
+                "consume status is 200": {
+                    "name": "consume status is 200",
+                    "path": "::consume status is 200",
+                    "id": "16f35a08fe8664bce1504492551bac9b",
+                    "passes": 14055,
+                    "fails": 0
+                },
+                "first send is a real decision (not a replay)": {
+                    "id": "db6ee726c2a4e05a43faca76190d2daf",
+                    "passes": 14055,
+                    "fails": 0,
+                    "name": "first send is a real decision (not a replay)",
+                    "path": "::first send is a real decision (not a replay)"
+                },
+                "retry status is 200": {
+                    "name": "retry status is 200",
+                    "path": "::retry status is 200",
+                    "id": "2387c2b5e6dcb2e30bcb7c4b67402657",
+                    "passes": 1451,
+                    "fails": 0
+                },
+                "retry returns the original decision with replayed:true": {
+                    "name": "retry returns the original decision with replayed:true",
+                    "path": "::retry returns the original decision with replayed:true",
+                    "id": "e1142d57b9916e6e76fc6fab6568a42e",
+                    "passes": 1451,
+                    "fails": 0
+                }
+            }
+    }
+}

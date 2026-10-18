@@ -1,0 +1,86 @@
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+
+     execution: local
+        script: /scripts/contention.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 5 max VUs, 35s max duration (incl. graceful stop):
+              * one_hot_account: 5 looping VUs for 5s (gracefulStop: 30s)
+
+
+running (01.0s), 5/5 VUs, 156 complete and 0 interrupted iterations
+one_hot_account   [  17% ] 5 VUs  0.9s/5s
+
+running (02.0s), 5/5 VUs, 376 complete and 0 interrupted iterations
+one_hot_account   [  37% ] 5 VUs  1.9s/5s
+
+running (03.0s), 5/5 VUs, 635 complete and 0 interrupted iterations
+one_hot_account   [  57% ] 5 VUs  2.9s/5s
+
+running (04.0s), 5/5 VUs, 912 complete and 0 interrupted iterations
+one_hot_account   [  77% ] 5 VUs  3.9s/5s
+
+running (05.0s), 5/5 VUs, 1184 complete and 0 interrupted iterations
+one_hot_account   [  97% ] 5 VUs  4.9s/5s
+time="2026-10-18T07:16:13Z" level=info msg="FINAL account usage: consumed=100 allowance=100 remaining=0" source=console
+
+
+  █ THRESHOLDS 
+
+    checks
+    ✓ 'rate==1' rate=100.00%
+
+    http_req_duration{name:consume}
+    ✓ 'p(95)<5000' p(95)=29.95ms
+
+    http_req_failed{name:consume}
+    ✓ 'rate<0.01' rate=0.00%
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 2358    457.470668/s
+    checks_succeeded...: 100.00% 2358 out of 2358
+    checks_failed......: 0.00%   0 out of 2358
+
+    ✓ consume status is 200
+    ✓ every rejection is MONTHLY_ALLOWANCE_EXCEEDED on the account
+    ✓ NO OVERSPENDING: consumed never exceeds the allowance
+    ✓ the allowance was fully used (the load really exceeded it)
+
+    CUSTOM
+    decisions_accepted.............: 100    19.400792/s
+    decisions_rejected.............: 1128   218.84093/s
+
+    HTTP
+    http_req_duration..............: avg=19.85ms min=1.97ms med=18.31ms max=39.48ms p(90)=26.93ms p(95)=29.91ms
+      { expected_response:true }...: avg=19.85ms min=1.97ms med=18.31ms max=39.48ms p(90)=26.93ms p(95)=29.91ms
+      { name:consume }.............: avg=20.15ms min=6.92ms med=18.36ms max=39.48ms p(90)=27.08ms p(95)=29.95ms
+    http_req_failed................: 0.00%  0 out of 1253
+      { name:consume }.............: 0.00%  0 out of 1228
+    http_reqs......................: 1253   243.09192/s
+
+    EXECUTION
+    iteration_duration.............: avg=20.38ms min=7.1ms  med=18.59ms max=39.69ms p(90)=27.32ms p(95)=30.19ms
+    iterations.....................: 1228   238.241722/s
+    vus............................: 5      min=5         max=5
+    vus_max........................: 5      min=5         max=5
+
+    NETWORK
+    data_received..................: 861 kB 167 kB/s
+    data_sent......................: 306 kB 59 kB/s
+
+
+
+
+running (05.2s), 0/5 VUs, 1228 complete and 0 interrupted iterations
+one_hot_account ✓ [ 100% ] 5 VUs  5s
+--- invariants check (account = sum of users = sum of accepted units) ---
+OK: 6 account-month(s) checked, all invariants hold.
+k6 exit code: 0 | db:check exit code: 0

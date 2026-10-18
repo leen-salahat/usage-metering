@@ -1,0 +1,214 @@
+{
+    "root_group": {
+        "name": "",
+        "path": "",
+        "id": "d41d8cd98f00b204e9800998ecf8427e",
+        "groups": {
+            "teardown": {
+                "path": "::teardown",
+                "id": "a8a9942382e8ffe2e56ef29e664b8229",
+                "groups": {},
+                "checks": {
+                        "NO OVERSPENDING: consumed never exceeds the allowance": {
+                            "id": "6fc46456bf98d8a8046b1d9de8b3dec1",
+                            "passes": 1,
+                            "fails": 0,
+                            "name": "NO OVERSPENDING: consumed never exceeds the allowance",
+                            "path": "::teardown::NO OVERSPENDING: consumed never exceeds the allowance"
+                        },
+                        "the allowance was fully used (the load really exceeded it)": {
+                            "name": "the allowance was fully used (the load really exceeded it)",
+                            "path": "::teardown::the allowance was fully used (the load really exceeded it)",
+                            "id": "d981bcc944c168112c76165a9ec5ecf6",
+                            "passes": 1,
+                            "fails": 0
+                        }
+                    },
+                "name": "teardown"
+            }
+        },
+        "checks": {
+            "consume status is 200": {
+                "fails": 0,
+                "name": "consume status is 200",
+                "path": "::consume status is 200",
+                "id": "16f35a08fe8664bce1504492551bac9b",
+                "passes": 3667
+            },
+            "every rejection is MONTHLY_ALLOWANCE_EXCEEDED on the account": {
+                "name": "every rejection is MONTHLY_ALLOWANCE_EXCEEDED on the account",
+                "path": "::every rejection is MONTHLY_ALLOWANCE_EXCEEDED on the account",
+                "id": "a326792c743fc756c7da67dbd9faa6b0",
+                "passes": 2667,
+                "fails": 0
+            }
+        }
+    },
+    "metrics": {
+        "http_req_duration": {
+            "p(95)": 395.19536975,
+            "avg": 272.07018451895897,
+            "min": 3.44549,
+            "med": 256.970347,
+            "max": 585.314879,
+            "p(90)": 349.3148116
+        },
+        "http_req_tls_handshaking": {
+            "avg": 0,
+            "min": 0,
+            "med": 0,
+            "max": 0,
+            "p(90)": 0,
+            "p(95)": 0
+        },
+        "http_req_sending": {
+            "med": 0.0361085,
+            "max": 0.415152,
+            "p(90)": 0.0552942,
+            "p(95)": 0.06204024999999998,
+            "avg": 0.03815758071505955,
+            "min": 0.010702
+        },
+        "iterations": {
+            "rate": 179.8348731977647,
+            "count": 3667
+        },
+        "http_req_failed": {
+            "passes": 0,
+            "fails": 3692,
+            "value": 0
+        },
+        "data_sent": {
+            "count": 901509,
+            "rate": 44211.2780751687
+        },
+        "vus": {
+            "value": 50,
+            "min": 50,
+            "max": 50
+        },
+        "http_req_duration{name:consume}": {
+            "p(90)": 349.707762,
+            "p(95)": 395.5528800999999,
+            "avg": 273.8777866176702,
+            "min": 49.266671,
+            "med": 257.534348,
+            "max": 585.314879,
+            "thresholds": {
+                "p(95)<5000": false
+            }
+        },
+        "http_req_failed{name:consume}": {
+            "passes": 0,
+            "fails": 3667,
+            "thresholds": {
+                "rate<0.01": false
+            },
+            "value": 0
+        },
+        "http_req_duration{expected_response:true}": {
+            "min": 3.44549,
+            "med": 256.970347,
+            "max": 585.314879,
+            "p(90)": 349.3148116,
+            "p(95)": 395.19536975,
+            "avg": 272.07018451895897
+        },
+        "http_reqs": {
+            "rate": 181.06090860271263,
+            "count": 3692
+        },
+        "http_req_receiving": {
+            "med": 0.10116649999999999,
+            "max": 0.783557,
+            "p(90)": 0.13966130000000002,
+            "p(95)": 0.15315079999999995,
+            "avg": 0.10804133802816919,
+            "min": 0.064099
+        },
+        "decisions_accepted": {
+            "count": 1000,
+            "rate": 49.04141619791783
+        },
+        "data_received": {
+            "count": 2536078,
+            "rate": 124372.85670838306
+        },
+        "http_req_connecting": {
+            "med": 0,
+            "max": 2.615906,
+            "p(90)": 0,
+            "p(95)": 0,
+            "avg": 0.01938600704225352,
+            "min": 0
+        },
+        "checks": {
+            "fails": 0,
+            "passes": 6336,
+            "thresholds": {
+                "rate==1": false
+            },
+            "value": 1
+        },
+        "iteration_duration": {
+            "p(95)": 395.81780259999994,
+            "avg": 274.1726728538313,
+            "min": 52.190144,
+            "med": 257.852213,
+            "max": 585.583644,
+            "p(90)": 350.15748859999997
+        },
+        "vus_max": {
+            "value": 50,
+            "min": 50,
+            "max": 50
+        },
+        "decisions_rejected": {
+            "count": 2667,
+            "rate": 130.79345699984685
+        },
+        "http_req_blocked": {
+            "max": 2.671077,
+            "p(90)": 0.007452800000000001,
+            "p(95)": 0.008480949999999998,
+            "avg": 0.02584953358613225,
+            "min": 0.00283,
+            "med": 0.004957
+        },
+        "http_req_waiting": {
+            "max": 585.184016,
+            "p(90)": 349.11571710000004,
+            "p(95)": 395.07221835,
+            "avg": 271.9239856002163,
+            "min": 3.358123,
+            "med": 256.797142
+        }
+    },
+    "setup_data": {
+        "allowance": 1000,
+        "key": "mk_apd3sfRLQe1m07o3rYKxcaEaaAY3unu_YMkmB_n-XAo",
+        "runId": "mvdhv691",
+        "users": [
+            "u0",
+            "u1",
+            "u2",
+            "u3",
+            "u4",
+            "u5",
+            "u6",
+            "u7",
+            "u8",
+            "u9",
+            "u10",
+            "u11",
+            "u12",
+            "u13",
+            "u14",
+            "u15",
+            "u16",
+            "u17",
+            "u18",
+            "u19"
+        ]
+    }
+}
