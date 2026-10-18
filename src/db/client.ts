@@ -4,8 +4,8 @@ import * as schema from "./schema.js";
 
 export type Db = NodePgDatabase<typeof schema>;
 
-export function createDb(connectionString: string) {
-  const pool = new pg.Pool({ connectionString, max: 10 });
+export function createDb(connectionString: string, max = 10) {
+  const pool = new pg.Pool({ connectionString, max });
   const db = drizzle(pool, { schema });
   return { pool, db };
 }

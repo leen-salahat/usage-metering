@@ -5,7 +5,7 @@ import { runMigrations } from "./db/migrate.js";
 import { seedPredefinedPlans } from "./db/seed.js";
 import { waitForDb } from "./db/wait.js";
 
-const { pool, db } = createDb(config.DATABASE_URL);
+const { pool, db } = createDb(config.DATABASE_URL, config.DB_POOL_MAX);
 
 // An idle pooled connection can emit an error (e.g. Postgres restarts). Log it instead of crashing.
 pool.on("error", (err) => console.error("Idle database client error:", err.message));
