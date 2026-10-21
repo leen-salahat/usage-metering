@@ -1,0 +1,164 @@
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+
+     execution: local
+        script: /scripts/no-contention.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 40 max VUs, 1m0s max duration (incl. graceful stop):
+              * independent_accounts: 40 looping VUs for 30s (gracefulStop: 30s)
+
+
+Run                    [ 100% ] setup()
+independent_accounts   [   0% ]
+
+running (0m02.0s), 40/40 VUs, 82 complete and 0 interrupted iterations
+independent_accounts   [   2% ] 40 VUs  00.6s/30s
+
+running (0m03.0s), 40/40 VUs, 251 complete and 0 interrupted iterations
+independent_accounts   [   5% ] 40 VUs  01.6s/30s
+
+running (0m04.0s), 40/40 VUs, 485 complete and 0 interrupted iterations
+independent_accounts   [   9% ] 40 VUs  02.6s/30s
+
+running (0m05.0s), 40/40 VUs, 708 complete and 0 interrupted iterations
+independent_accounts   [  12% ] 40 VUs  03.6s/30s
+
+running (0m06.0s), 40/40 VUs, 882 complete and 0 interrupted iterations
+independent_accounts   [  15% ] 40 VUs  04.6s/30s
+
+running (0m07.0s), 40/40 VUs, 1117 complete and 0 interrupted iterations
+independent_accounts   [  19% ] 40 VUs  05.6s/30s
+
+running (0m08.0s), 40/40 VUs, 1374 complete and 0 interrupted iterations
+independent_accounts   [  22% ] 40 VUs  06.6s/30s
+
+running (0m09.0s), 40/40 VUs, 1633 complete and 0 interrupted iterations
+independent_accounts   [  25% ] 40 VUs  07.6s/30s
+
+running (0m10.0s), 40/40 VUs, 1876 complete and 0 interrupted iterations
+independent_accounts   [  29% ] 40 VUs  08.6s/30s
+
+running (0m11.0s), 40/40 VUs, 2156 complete and 0 interrupted iterations
+independent_accounts   [  32% ] 40 VUs  09.6s/30s
+
+running (0m12.0s), 40/40 VUs, 2438 complete and 0 interrupted iterations
+independent_accounts   [  35% ] 40 VUs  10.6s/30s
+
+running (0m13.0s), 40/40 VUs, 2661 complete and 0 interrupted iterations
+independent_accounts   [  39% ] 40 VUs  11.6s/30s
+
+running (0m14.0s), 40/40 VUs, 2976 complete and 0 interrupted iterations
+independent_accounts   [  42% ] 40 VUs  12.6s/30s
+
+running (0m15.0s), 40/40 VUs, 3250 complete and 0 interrupted iterations
+independent_accounts   [  45% ] 40 VUs  13.6s/30s
+
+running (0m16.0s), 40/40 VUs, 3484 complete and 0 interrupted iterations
+independent_accounts   [  49% ] 40 VUs  14.6s/30s
+
+running (0m17.0s), 40/40 VUs, 3748 complete and 0 interrupted iterations
+independent_accounts   [  52% ] 40 VUs  15.6s/30s
+
+running (0m18.0s), 40/40 VUs, 4040 complete and 0 interrupted iterations
+independent_accounts   [  55% ] 40 VUs  16.6s/30s
+
+running (0m19.0s), 40/40 VUs, 4318 complete and 0 interrupted iterations
+independent_accounts   [  59% ] 40 VUs  17.6s/30s
+
+running (0m20.0s), 40/40 VUs, 4607 complete and 0 interrupted iterations
+independent_accounts   [  62% ] 40 VUs  18.6s/30s
+
+running (0m21.0s), 40/40 VUs, 4896 complete and 0 interrupted iterations
+independent_accounts   [  65% ] 40 VUs  19.6s/30s
+
+running (0m22.0s), 40/40 VUs, 5131 complete and 0 interrupted iterations
+independent_accounts   [  69% ] 40 VUs  20.6s/30s
+
+running (0m23.0s), 40/40 VUs, 5352 complete and 0 interrupted iterations
+independent_accounts   [  72% ] 40 VUs  21.6s/30s
+
+running (0m24.0s), 40/40 VUs, 5660 complete and 0 interrupted iterations
+independent_accounts   [  75% ] 40 VUs  22.6s/30s
+
+running (0m25.0s), 40/40 VUs, 5801 complete and 0 interrupted iterations
+independent_accounts   [  79% ] 40 VUs  23.6s/30s
+
+running (0m26.0s), 40/40 VUs, 6095 complete and 0 interrupted iterations
+independent_accounts   [  82% ] 40 VUs  24.6s/30s
+
+running (0m27.0s), 40/40 VUs, 6433 complete and 0 interrupted iterations
+independent_accounts   [  85% ] 40 VUs  25.6s/30s
+
+running (0m28.0s), 40/40 VUs, 6700 complete and 0 interrupted iterations
+independent_accounts   [  89% ] 40 VUs  26.6s/30s
+
+running (0m29.0s), 40/40 VUs, 6997 complete and 0 interrupted iterations
+independent_accounts   [  92% ] 40 VUs  27.6s/30s
+
+running (0m30.0s), 40/40 VUs, 7337 complete and 0 interrupted iterations
+independent_accounts   [  95% ] 40 VUs  28.6s/30s
+
+running (0m31.0s), 40/40 VUs, 7658 complete and 0 interrupted iterations
+independent_accounts   [  99% ] 40 VUs  29.6s/30s
+
+
+  █ THRESHOLDS 
+
+    checks
+    ✓ 'rate==1' rate=100.00%
+
+    http_req_duration{name:consume}
+    ✓ 'p(95)<2000' p(95)=207.67ms
+
+    http_req_failed{name:consume}
+    ✓ 'rate<0.01' rate=0.00%
+
+
+  █ TOTAL RESULTS 
+
+    checks_total.......: 17148   545.656907/s
+    checks_succeeded...: 100.00% 17148 out of 17148
+    checks_failed......: 0.00%   0 out of 17148
+
+    ✓ consume status is 200
+    ✓ first send is a real decision (not a replay)
+    ✓ retry status is 200
+    ✓ retry returns the original decision with replayed:true
+
+    CUSTOM
+    decisions_accepted.............: 6516   207.341988/s
+    decisions_rejected.............: 1311   41.716597/s
+    decisions_replayed.............: 747    23.769869/s
+
+    HTTP
+    http_req_duration..............: avg=136.98ms min=4.56ms  med=130.34ms max=651.67ms p(90)=174.44ms p(95)=206.31ms
+      { expected_response:true }...: avg=136.98ms min=4.56ms  med=130.34ms max=651.67ms p(90)=174.44ms p(95)=206.31ms
+      { name:consume }.............: avg=139.71ms min=19.28ms med=131.1ms  max=651.67ms p(90)=174.95ms p(95)=207.67ms
+    http_req_failed................: 0.00%  0 out of 8754
+      { name:consume }.............: 0.00%  0 out of 8574
+    http_reqs......................: 8754   278.556133/s
+
+    EXECUTION
+    iteration_duration.............: avg=153.46ms min=74.26ms med=136.8ms  max=737.54ms p(90)=226.11ms p(95)=266.33ms
+    iterations.....................: 7827   249.058585/s
+    vus............................: 40     min=0         max=40
+    vus_max........................: 40     min=40        max=40
+
+    NETWORK
+    data_received..................: 6.0 MB 190 kB/s
+    data_sent......................: 2.1 MB 68 kB/s
+
+
+
+
+running (0m31.4s), 00/40 VUs, 7827 complete and 0 interrupted iterations
+independent_accounts ✓ [ 100% ] 40 VUs  30s
+--- invariants check (account = sum of users = sum of accepted units) ---
+OK: 20 account-month(s) checked, all invariants hold.
+k6 exit code: 0 | db:check exit code: 0

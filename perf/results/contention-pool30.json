@@ -1,0 +1,214 @@
+{
+    "metrics": {
+        "http_req_failed": {
+            "passes": 0,
+            "fails": 3295,
+            "value": 0
+        },
+        "http_req_waiting": {
+            "p(95)": 607.1859293999997,
+            "avg": 304.9315046482554,
+            "min": 3.630983,
+            "med": 286.648257,
+            "max": 828.50104,
+            "p(90)": 534.2153673999999
+        },
+        "data_sent": {
+            "count": 804598,
+            "rate": 39342.35685203552
+        },
+        "http_req_duration": {
+            "p(90)": 534.44877,
+            "p(95)": 607.3764190999998,
+            "avg": 305.0984133292871,
+            "min": 3.80562,
+            "med": 286.760579,
+            "max": 828.658659
+        },
+        "decisions_rejected": {
+            "count": 2270,
+            "rate": 110.99598812589718
+        },
+        "http_req_receiving": {
+            "p(90)": 0.15896180000000001,
+            "p(95)": 0.1862242,
+            "avg": 0.12455659605462817,
+            "min": 0.058219,
+            "med": 0.117817,
+            "max": 0.878254
+        },
+        "checks": {
+            "passes": 5542,
+            "fails": 0,
+            "thresholds": {
+                "rate==1": false
+            },
+            "value": 1
+        },
+        "http_req_tls_handshaking": {
+            "p(95)": 0,
+            "avg": 0,
+            "min": 0,
+            "med": 0,
+            "max": 0,
+            "p(90)": 0
+        },
+        "http_req_connecting": {
+            "p(90)": 0,
+            "p(95)": 0,
+            "avg": 0.01986945098634294,
+            "min": 0,
+            "med": 0,
+            "max": 2.268299
+        },
+        "iteration_duration": {
+            "avg": 307.7474603865441,
+            "min": 84.94442,
+            "med": 287.3099085,
+            "max": 828.905414,
+            "p(90)": 536.0191637,
+            "p(95)": 608.6915118999998
+        },
+        "iterations": {
+            "count": 3270,
+            "rate": 159.89289919457437
+        },
+        "http_req_failed{name:consume}": {
+            "passes": 0,
+            "fails": 3270,
+            "thresholds": {
+                "rate<0.01": false
+            },
+            "value": 0
+        },
+        "http_req_blocked": {
+            "avg": 0.02791854567526544,
+            "min": 0.00309,
+            "med": 0.006278,
+            "max": 2.713061,
+            "p(90)": 0.0083448,
+            "p(95)": 0.009657699999999998
+        },
+        "http_reqs": {
+            "count": 3295,
+            "rate": 161.1153219712913
+        },
+        "data_received": {
+            "count": 2259723,
+            "rate": 110493.4745708444
+        },
+        "vus_max": {
+            "value": 50,
+            "min": 50,
+            "max": 50
+        },
+        "http_req_duration{expected_response:true}": {
+            "avg": 305.0984133292871,
+            "min": 3.80562,
+            "med": 286.760579,
+            "max": 828.658659,
+            "p(90)": 534.44877,
+            "p(95)": 607.3764190999998
+        },
+        "vus": {
+            "value": 50,
+            "min": 50,
+            "max": 50
+        },
+        "http_req_sending": {
+            "min": 0.012295,
+            "med": 0.041593,
+            "max": 0.504289,
+            "p(90)": 0.061465,
+            "p(95)": 0.06671569999999999,
+            "avg": 0.04235208497723819
+        },
+        "decisions_accepted": {
+            "count": 1000,
+            "rate": 48.89691106867718
+        },
+        "http_req_duration{name:consume}": {
+            "min": 82.716788,
+            "med": 287.02054250000003,
+            "max": 828.658659,
+            "p(90)": 535.4466256000001,
+            "p(95)": 608.3888182999998,
+            "avg": 307.37323017186577,
+            "thresholds": {
+                "p(95)<5000": false
+            }
+        }
+    },
+    "setup_data": {
+        "allowance": 1000,
+        "key": "mk_oTqO-rIZXlRwSDt1Fl-HX7AbendnOJR0scvojMhtx1I",
+        "runId": "mvhyy0ba",
+        "users": [
+            "u0",
+            "u1",
+            "u2",
+            "u3",
+            "u4",
+            "u5",
+            "u6",
+            "u7",
+            "u8",
+            "u9",
+            "u10",
+            "u11",
+            "u12",
+            "u13",
+            "u14",
+            "u15",
+            "u16",
+            "u17",
+            "u18",
+            "u19"
+        ]
+    },
+    "root_group": {
+        "id": "d41d8cd98f00b204e9800998ecf8427e",
+        "groups": {
+            "teardown": {
+                "groups": {},
+                "checks": {
+                        "NO OVERSPENDING: consumed never exceeds the allowance": {
+                            "fails": 0,
+                            "name": "NO OVERSPENDING: consumed never exceeds the allowance",
+                            "path": "::teardown::NO OVERSPENDING: consumed never exceeds the allowance",
+                            "id": "6fc46456bf98d8a8046b1d9de8b3dec1",
+                            "passes": 1
+                        },
+                        "the allowance was fully used (the load really exceeded it)": {
+                            "name": "the allowance was fully used (the load really exceeded it)",
+                            "path": "::teardown::the allowance was fully used (the load really exceeded it)",
+                            "id": "d981bcc944c168112c76165a9ec5ecf6",
+                            "passes": 1,
+                            "fails": 0
+                        }
+                    },
+                "name": "teardown",
+                "path": "::teardown",
+                "id": "a8a9942382e8ffe2e56ef29e664b8229"
+            }
+        },
+        "checks": {
+            "consume status is 200": {
+                "name": "consume status is 200",
+                "path": "::consume status is 200",
+                "id": "16f35a08fe8664bce1504492551bac9b",
+                "passes": 3270,
+                "fails": 0
+            },
+            "every rejection is MONTHLY_ALLOWANCE_EXCEEDED on the account": {
+                "name": "every rejection is MONTHLY_ALLOWANCE_EXCEEDED on the account",
+                "path": "::every rejection is MONTHLY_ALLOWANCE_EXCEEDED on the account",
+                "id": "a326792c743fc756c7da67dbd9faa6b0",
+                "passes": 2270,
+                "fails": 0
+            }
+        },
+        "name": "",
+        "path": ""
+    }
+}
