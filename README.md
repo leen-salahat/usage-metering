@@ -32,7 +32,7 @@ critical transaction), Docker Compose. One service, one database, plus an exampl
 Requires Docker with Compose.
 
 ```bash
-git clone https://github.com/<USERNAME>/usage-metering.git usage-metering
+git clone https://github.com/leen-salahat/usage-metering.git usage-metering
 cd usage-metering
 docker compose up --build
 ```
