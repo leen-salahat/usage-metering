@@ -150,3 +150,9 @@ Each run writes `perf/results/<LABEL>.txt` and `.json` and ends with the invaria
 Extra settings can be passed as `VAR=value`, e.g.
 `scripts/loadtest.sh contention VUS=100 DURATION=30s ALLOWANCE=500`.
 Requires Docker; the k6 image (`grafana/k6`) is pulled automatically.
+
+## Note on API keys in raw results
+
+Early raw k6 outputs were committed with throwaway API keys of load-test accounts. Those
+accounts lived in databases that were deleted after each run, so the keys are worthless.
+They were redacted in a later commit, and `scripts/loadtest.sh` now redacts them automatically.
