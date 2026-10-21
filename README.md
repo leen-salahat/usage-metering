@@ -256,9 +256,11 @@ The accounting invariant, per account and month, is checked by `npm run db:check
 - The clock is injectable, so month boundaries are tested deterministically.
 
 ## Architecture and database schema
-example client --HTTP, X-API-Key--> service (Express) --SQL--> PostgreSQL
-routes -> services -> database
 
+```text
+example client --HTTP, X-API-Key--> service (Express) --SQL--> PostgreSQL
+                                     routes -> services -> database
+```
 
 | Layer | Role |
 |---|---|
