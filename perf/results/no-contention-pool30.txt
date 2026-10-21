@@ -1,0 +1,66 @@
+
+         /\      Grafana   /‾‾/  
+    /\  /  \     |\  __   /  /   
+   /  \/    \    | |/ /  /   ‾‾\ 
+  /          \   |   (  |  (‾)  |
+ / __________ \  |_|\_\  \_____/ 
+
+
+     execution: local
+        script: /scripts/no-contention.js
+        output: -
+
+     scenarios: (100.00%) 1 scenario, 40 max VUs, 1m0s max duration (incl. graceful stop):
+              * independent_accounts: 40 looping VUs for 30s (gracefulStop: 30s)
+
+
+Run                    [ 100% ] setup()
+independent_accounts   [   0% ]
+
+Run                    [ 100% ] setup()
+independent_accounts   [   0% ]
+
+running (0m03.0s), 40/40 VUs, 32 complete and 0 interrupted iterations
+independent_accounts   [   2% ] 40 VUs  00.6s/30s
+
+running (0m04.0s), 40/40 VUs, 153 complete and 0 interrupted iterations
+independent_accounts   [   5% ] 40 VUs  01.6s/30s
+
+running (0m05.0s), 40/40 VUs, 269 complete and 0 interrupted iterations
+independent_accounts   [   9% ] 40 VUs  02.6s/30s
+
+running (0m06.0s), 40/40 VUs, 399 complete and 0 interrupted iterations
+independent_accounts   [  12% ] 40 VUs  03.6s/30s
+
+running (0m07.0s), 40/40 VUs, 550 complete and 0 interrupted iterations
+independent_accounts   [  15% ] 40 VUs  04.6s/30s
+
+running (0m08.0s), 40/40 VUs, 693 complete and 0 interrupted iterations
+independent_accounts   [  19% ] 40 VUs  05.6s/30s
+
+running (0m09.0s), 40/40 VUs, 825 complete and 0 interrupted iterations
+independent_accounts   [  22% ] 40 VUs  06.6s/30s
+
+running (0m10.0s), 40/40 VUs, 1020 complete and 0 interrupted iterations
+independent_accounts   [  25% ] 40 VUs  07.6s/30s
+
+running (0m11.0s), 40/40 VUs, 1199 complete and 0 interrupted iterations
+independent_accounts   [  29% ] 40 VUs  08.6s/30s
+
+running (0m12.0s), 40/40 VUs, 1365 complete and 0 interrupted iterations
+independent_accounts   [  32% ] 40 VUs  09.6s/30s
+
+running (0m13.0s), 40/40 VUs, 1575 complete and 0 interrupted iterations
+independent_accounts   [  35% ] 40 VUs  10.6s/30s
+
+running (0m14.0s), 40/40 VUs, 1810 complete and 0 interrupted iterations
+independent_accounts   [  39% ] 40 VUs  11.6s/30s
+
+running (0m15.0s), 40/40 VUs, 2036 complete and 0 interrupted iterations
+independent_accounts   [  42% ] 40 VUs  12.6s/30s
+
+running (0m16.0s), 40/40 VUs, 2231 complete and 0 interrupted iterations
+independent_accounts   [  45% ] 40 VUs  13.6s/30s
+
+running (0m17.0s), 40/40 VUs, 2466 complete and 0 interrupted iterations
+independent_accounts   [  49% ] 40 VUs  14.6s/30s
