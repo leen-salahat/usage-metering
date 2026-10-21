@@ -36,6 +36,15 @@ was silent, together with the reasoning. It will be merged into the README.
 | 18 | API key | One key per account, sent in `X-API-Key`. No rotation in this version. | Keeps scope small; rotation is a documented limitation. |
 | 19 | Plan patches | `PATCH` is strict: unknown fields (e.g. `kind`) and empty bodies return 400. | Silent ignoring would hide client bugs. |
 | 20 | Cross-account access | Users/plans of another account return 404, never 403. | No information leak about other accounts. |
+| 21 | Rejection priority | If several rules fail, the reported one is: user per-request, account per-request, user monthly, account monthly. | A deterministic, documented choice; the brief only asks for "a rule". |
+| 22 | Request id | Chosen by the caller, 1-128 chars from `A-Z a-z 0-9 _ . @ : -`, unique per account. | Matches the DB UNIQUE(account_id, request_id) idempotency guarantee. |
+| 23 | Retry, same payload | Returns the originally stored decision with `replayed: true`, even if plans or the month changed since. | Past decisions must never be rewritten. |
+| 24 | Retry, different payload | Same request id with a different `userId` or `units` returns 409 `IDEMPOTENCY_KEY_REUSED`. | Almost always a client bug; silently returning the old result would hide it. |
+| 25 | Concurrency | One transaction per request. Counter rows are locked `FOR UPDATE` in a fixed order (account, then user). The account row is the serialization point per account. | Prevents overspending and deadlocks; costs parallelism within one account. |
+| 26 | Plan updates vs consumption | Plans are read with `FOR SHARE` inside the consume transaction. An update takes effect for every consume that reads the plan after the update commits. | A clear, testable "point of effect". |
+| 27 | Usage rows | Created lazily for the first request of each UTC month; earlier months are never modified. | A new month starts at zero; history is preserved. |
+| 28 | Month of a request | The UTC month of the server clock when the request is processed (not the client's clock). | Brief: new consumption belongs to the month in which it is processed. |
+| 29 | Unknown user and retries | A request for a user that does not exist returns 404 before anything is recorded, even if the request id was used before. | Keeps the reservation step simple; documented edge case. |
 | 30 | Usage endpoints | `GET /v1/usage` and `GET /v1/users/:userId/usage` report the current UTC month (server clock), the plan applied right now, `consumed`, and `remaining = max(0, allowance - consumed)`. | The brief asks for consumed and remaining at both levels. |
 | 31 | Consistent reads | The user endpoint reads user and account numbers in ONE SQL statement; reads take no locks. | One statement sees one snapshot, so the two levels never disagree with each other. |
 | 32 | `maxConsumableNow` | Informational: `min(user remaining, account remaining, user max per request, account max per request)`. It is not a reservation. | Lets a client know what would be accepted at this moment. |
