@@ -29,4 +29,6 @@ docker compose exec -T service npm run db:check --silent 2>&1 | tee -a "$OUT"
 CHECK_STATUS=${PIPESTATUS[0]}
 
 echo "k6 exit code: $K6_STATUS | db:check exit code: $CHECK_STATUS" | tee -a "$OUT"
+# redact throwaway API keys from saved results
+sed -i -E "s/mk_[A-Za-z0-9_-]{43}/mk_REDACTED/g" "perf/results/$LABEL.json" "perf/results/$LABEL.txt" 2>/dev/null
 [ "$K6_STATUS" -eq 0 ] && [ "$CHECK_STATUS" -eq 0 ]
